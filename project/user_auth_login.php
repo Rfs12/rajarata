@@ -19,7 +19,6 @@ $stmt->store_result();
 
 // Check if the email exists
 if ($stmt->num_rows === 0) {
-    die("Invalid email or password.");
 }
 
 // Bind result variable
@@ -32,7 +31,10 @@ if (password_verify($pass, $hashed_password)) {
     exit();  
     // You can set session variables or redirect the user here
 } else {
-    echo "Invalid email or password.";
+    echo "<script>
+    alert('Email or Password is wrong');
+    window.location.href = 'login.php'; // Redirect to login.php
+  </script>";
 }
 
 // Close the statement and connection

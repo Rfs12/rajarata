@@ -19,9 +19,13 @@ $stmt->bind_param("sss", $username, $email, $hashed_password);
 
 // Execute the query
 if ($stmt->execute()) {
-    echo "Registration successful!with this: $email";
+    header("location:login.php");
+   
 } else {
-    echo "error" . $stmt->error;
+    echo "<script>
+    alert('Email or Password is wrong');
+    window.location.href = 'signup.php'; 
+  </script>";
 }
 
 // Close the statement and connection
