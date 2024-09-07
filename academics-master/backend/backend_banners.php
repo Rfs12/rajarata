@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             }
 
             // Check file size
-            if ($banner_images["size"][$i] > 500000) {
+            if ($banner_images["size"][$i] > 10 * 1024 * 1024) {
                 echo "<script>alert('Sorry, your file is too large.');</script>";
                 $uploadOk = 0;
             }

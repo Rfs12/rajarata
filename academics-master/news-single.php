@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<title><?php echo $title; ?></title>
+<title>News</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="styles.css"> <!-- Add your CSS file here -->
@@ -138,6 +138,9 @@
     <?php
 include('db_connect.php'); // Include your database connection
 
+// Define the base path for images
+$base_image_path = 'backend/'; // Adjust this path as necessary
+
 // Check if the 'id' parameter is provided
 if (isset($_GET['id']) && !empty($_GET['id'])) {
     $news_id = intval($_GET['id']); // Get the 'id' from the URL and convert it to an integer
@@ -154,6 +157,9 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
         $description = htmlspecialchars($row['description']);
         $image_path = htmlspecialchars($row['image_path']);
         $created_at = date('F j, Y', strtotime($row['created_at'])); // Format the date
+        
+        // Prepend the base image path
+        $full_image_path = $base_image_path . $image_path;
     } else {
         echo "<p>News article not found.</p>";
         exit;
@@ -164,21 +170,21 @@ if (isset($_GET['id']) && !empty($_GET['id'])) {
 }
 ?>
 
-
-    <div class="site-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-9 mb-4">
-                    <h1 class="mb-4"><?php echo $title; ?></h1>
-                    <p class="mb-5">
-                        <img src="<?php echo $image_path; ?>" alt="Image" class="img-fluid">
-                    </p>
-                    <p><strong>Date:</strong> <?php echo $created_at; ?></p>
-                    <p><?php echo $description; ?></p>
-                </div>
+<div class="site-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-9 mb-4">
+                <h1 class="mb-4"><?php echo $title; ?></h1>
+                <p class="mb-5">
+                    <img src="<?php echo $full_image_path; ?>" alt="Image" class="img-fluid">
+                </p>
+                <p><strong>Date:</strong> <?php echo $created_at; ?></p>
+                <p><?php echo $description; ?></p>
             </div>
         </div>
     </div>
+</div>
+
 
     <div class="section-bg style-1" style="background-image: url('images/hero_1.jpg');">
         <div class="container">

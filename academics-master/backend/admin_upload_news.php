@@ -155,30 +155,37 @@ if (isset($_POST['update'])) {
     </form>
 
     <h2 class="mt-5">Manage News</h2>
-    <?php
-$result = mysqli_query($conn, "SELECT * FROM news ORDER BY created_at DESC");
-    if (mysqli_num_rows($result) > 0) {
-        while ($row = mysqli_fetch_assoc($result)) {
-            $id = $row['id'];
-            $title = htmlspecialchars($row['title']);
-            $description = htmlspecialchars($row['description']);
-            $image_path = htmlspecialchars($row['image_path']);
-            $created_at = date('F j, Y', strtotime($row['created_at']));
-            echo '<div class="news-item mb-4">';
-            echo '<h3>' . $title . '</h3>';
-            if (!empty($image_path)) {
-                echo '<p><img src="' . $image_path . '" alt="Image" class="img-fluid" style="max-width: 200px;"></p>';
+    <div class="container">
+    <div class="row">
+        <?php
+        $result = mysqli_query($conn, "SELECT * FROM news ORDER BY created_at DESC");
+        if (mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+                $id = $row['id'];
+                $title = htmlspecialchars($row['title']);
+                $description = htmlspecialchars($row['description']);
+                $image_path = htmlspecialchars($row['image_path']);
+                $created_at = date('F j, Y', strtotime($row['created_at']));
+                echo '<div class="col-lg-4 col-md-6 mb-4">'; // Use Bootstrap grid classes to create columns
+                echo '<div class="news-item">';
+                echo '<h3>' . $title . '</h3>';
+                if (!empty($image_path)) {
+                    echo '<p><img src="' . $image_path . '" alt="Image" class="img-fluid" style="max-width: 20rem; height: 20rem;"></p>'; // Responsive image
+                }
+                echo '<p>' . $description . '</p>';
+                echo '<p><small>' . $created_at . '</small></p>';
+                echo '<a href="admin_edit_upload_news.php?id=' . $id . '" class="btn btn-warning"style="margin-right:1rem;">Edit</a>';
+                echo '<a href="admin_upload_news.php?delete=' . $id . '" class="btn btn-danger">Delete</a>';
+                echo '</div>';
+                echo '</div>'; // Close the column div
             }
-            echo '<p>' . $description . '</p>';
-            echo '<p><small>' . $created_at . '</small></p>';
-            echo '<a href="admin_edit_upload_news.php?id=' . $id . '" class="btn btn-warning">Edit</a>';
-            echo '<a href="admin_upload_news.php?delete=' . $id . '" class="btn btn-danger">Delete</a>';
-            echo '</div>';
+        } else {
+            echo '<div class="col-12"><p>No news articles available.</p></div>';
         }
-    } else {
-        echo '<p>No news articles available.</p>';
-    }
-    ?>
+        ?>
+    </div>
+</div>
+
 </div>
 </body>
 </html>

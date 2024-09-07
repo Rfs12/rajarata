@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
                 echo "<script>alert('File is not an image.');</script>";
                 $uploadOk = 0;
             }
-            if ($news_image["size"] > 500000) {
+            if ($news_image["size"] >  10 * 1024 * 1024) {
                 echo "<script>alert('Sorry, your file is too large.');</script>";
                 $uploadOk = 0;
             }

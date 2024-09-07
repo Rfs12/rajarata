@@ -1,0 +1,99 @@
+/* Main news and small news container styles */
+.news-container {
+    display: flex;
+    flex-direction: row;
+    gap: 3px; /* Margin between the main news and small news */
+}
+
+/* Main news section styles */
+.main-news {
+    flex: 2; /* Takes up more space */
+}
+
+.large-news-item {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+    margin-bottom: 20px; /* Space below the large news item */
+}
+
+.large-news-item img {
+    width: 20vw;
+    height: auto;
+    object-fit: cover;
+}
+
+.large-news-item .post-content {
+    padding: 10px;
+    margin-top: 10px; /* Space between image and text content */
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Space between date and title */
+}
+
+/* Small news items container styles */
+.small-news-container {
+    flex: 1; /* Takes up less space */
+    display: flex;
+    flex-direction: column;
+    gap: 3px; /* Space between small news items */
+}
+
+.small-news-item {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.small-news-item img {
+    width: 100px; /* Fixed width for small images */
+    height: auto;
+    object-fit: cover;
+}
+
+.small-news-item .post-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Video container styles */
+.video-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px; /* Space between video items */
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+.video-1 {
+    display: block;
+    position: relative;
+}
+
+.video-1 img {
+    width: 100%; /* Ensure video thumbnails take full width */
+    height: 200px;
+    object-fit: cover;
+}
+
+.play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.icon-play {
+    color: #fff;
+}
+/*video part */
+.custom-video-width {
+    width: 80%; /* Adjust the percentage as needed */
+    max-width: 800px; /* Set a maximum width if desired */
+}
+

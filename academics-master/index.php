@@ -25,7 +25,7 @@
   <link href="css/jquery.mb.YTPlayer.min.css" media="all" rel="stylesheet" type="text/css">
 
   <link rel="stylesheet" href="css/style.css">
-
+  <link rel="stylesheet" href="news.css">
 
 
 </head>
@@ -487,79 +487,139 @@ include('db_connect.php');
     </div>
     
     <div class="news-updates">
-      <div class="container">
-         
-        <div class="row">
-        <div class="news-updates">
     <div class="container">
         <div class="row">
-            <div class="col-lg-9">
+            <!-- Main news section on the left -->
+            <div class="col-lg-8">
                 <div class="section-heading">
                     <h2 class="text-black">News & Updates</h2>
-                    <a href="admin_upload_news.php">Add News</a>
+                    <a href="all_news.php">View All News</a>
                 </div>
-                <div class="row">
-                <?php
-// Define the base path to the uploads directory
-$base_url = 'backend/uploads/';
+                <div class="news-container">
+                    <div class="main-news">
+                        <?php
+                            // Define the base path to the uploads directory
+                            $base_url = 'backend/';
 
-// Query to fetch the latest 3 news items
-$result = mysqli_query($conn, "SELECT * FROM news ORDER BY created_at DESC LIMIT 3");
+                            // Query to fetch the latest 3 news items
+                            $result = mysqli_query($conn, "SELECT * FROM news ORDER BY created_at DESC LIMIT 5");
 
-// Loop through each news item
-while ($row = mysqli_fetch_assoc($result)) {
-    // Construct the full URL to the image
-    $image_url = $base_url . htmlspecialchars($row['image_path']);
+                            // Fetch all news items
+                            $news_items = [];
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $news_items[] = $row;
+                            }
 
-    echo '<div class="col-lg-6 mb-4">';
-    echo '<div class="post-entry-big">';
-    
-    // Display the image with the correct path
-    echo '<a href="news-single.php?id=' . $row['id'] . '" class="img-link">';
-    echo '<img src="' . $image_url . '" alt="Image" class="img-fluid">';
-    echo '</a>';
-    
-    echo '<div class="post-content">';
-    echo '<div class="post-meta">';
-    echo '<a href="#">' . date('F j, Y', strtotime($row['created_at'])) . '</a>';
-    echo '</div>';
-    echo '<h3 class="post-heading"><a href="news-single.php?id=' . $row['id'] . '">' . htmlspecialchars($row['title']) . '</a></h3>';
-    echo '</div>';
-    echo '</div>';
-    echo '</div>';
+                            // Display the first news item as large
+                            if (!empty($news_items)) {
+                                $first = true;
+                                foreach ($news_items as $index => $row) {
+                                    // Construct the full URL to the image
+                                    $image_url = $base_url . htmlspecialchars($row['image_path']);
+
+                                    // Determine class for large or small news
+                                    $news_class = $first ? 'large-news-item' : 'small-news-item';
+                                    $first = false;
+
+                                    echo '<div class="' . $news_class . '">';
+                                    echo '<a href="news-single.php?id=' . $row['id'] . '" class="img-link">';
+                                    echo '<img src="' . $image_url . '" alt="Image" class="img-fluid">';
+                                    echo '<div class="post-content">';
+                                    echo '<div class="post-meta">';
+                                    echo '<a href="#">' . date('F j, Y', strtotime($row['created_at'])) . '</a>';
+                                    echo '</div>';
+                                    echo '<h3 class="post-heading">' . htmlspecialchars($row['title']) . '</h3>';
+                                    echo '</div>';
+                                    echo '</a>';
+                                    echo '</div>';
+
+                                    // If it's the first item, stop further processing
+                                    if ($first === false) break;
+                                }
+                            }
+                        ?>
+                    </div>
+
+                    <!-- Smaller news items -->
+                    <div class="small-news-container">
+                        <?php
+                            // Display the remaining news items as small
+                            foreach ($news_items as $index => $row) {
+                                // Skip the first item as it is already used as large news
+                                if ($index > 0) {
+                                    // Construct the full URL to the image
+                                    $image_url = $base_url . htmlspecialchars($row['image_path']);
+
+                                    echo '<div class="small-news-item">';
+                                    echo '<a href="news-single.php?id=' . $row['id'] . '" class="img-link">';
+                                    echo '<img src="' . $image_url . '" alt="Image" class="img-fluid">';
+                                    echo '<div class="post-content">';
+                                    echo '<div class="post-meta">';
+                                    echo '<a href="#">' . date('F j, Y', strtotime($row['created_at'])) . '</a>';
+                                    echo '</div>';
+                                    echo '<h5 class="post-heading">' . htmlspecialchars($row['title']) . '</h5>';
+                                    echo '</div>';
+                                    echo '</a>';
+                                    echo '</div>';
+                                }
+                            }
+                        ?>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Campus Videos section on the right -->
+      <?php
+            // Fetch videos from the database
+$videos = [];
+$result = $conn->query("SELECT * FROM campus_videos ORDER BY created_at DESC LIMIT 2");
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        // Verify that files exist in the directory
+        $video_file_path = 'backend/videos/' . basename($row['video_file_path']);
+        $image_file_path = 'backend/videos/' . basename($row['image_path']);
+
+        if (file_exists($video_file_path) && file_exists($image_file_path)) {
+            $row['video_file_path'] = $video_file_path;
+            $row['image_path'] = $image_file_path;
+            $videos[] = $row;
+        }
+    }
 }
 ?>
 
-                </div>
-            </div>
-            <div class="col-lg-3">
-                <!-- Campus Videos section if needed -->
-            </div>
-        </div>
-    </div>
-</div>
-
-          <div class="col-lg-3">
+        <div class="col-lg-4">
             <div class="section-heading">
-              <h2 class="text-black">Campus Videos</h2>
-              <a href="#">View All Videos</a>
+                <h2 class="text-black">Campus Videos</h2>
+                <a href="all_videos.php">View All Videos</a>
             </div>
-            <a href="https://vimeo.com/45830194" class="video-1 mb-4" data-fancybox="" data-ratio="2">
-              <span class="play">
-                <span class="icon-play"></span>
-              </span>
-              <img src="images/course_5.jpg" alt="Image" class="img-fluid">
-            </a>
-            <a href="https://vimeo.com/45830194" class="video-1 mb-4" data-fancybox="" data-ratio="2">
-                <span class="play">
-                  <span class="icon-play"></span>
-                </span>
-                <img src="images/course_5.jpg" alt="Image" class="img-fluid">
-              </a>
+            <div class="container mt-5">
+        <div class="column">
+            <?php foreach ($videos as $video): ?>
+              <div class="col-md-4 custom-video-width">                    
+                <div class="card" >
+                        <!-- Video Thumbnail with Fancybox -->
+                        <a href="<?php echo htmlspecialchars($video['video_file_path']); ?>" class="video-1" style=""data-fancybox data-ratio="2">
+                            <img src="<?php echo htmlspecialchars($video['image_path']); ?>" alt="Video Thumbnail" class="card-img-top" >
+                            <span class="play">
+                                <span class="icon-play"></span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+                            <!-- Video Title -->
+                    <h6 class="card-title"><?php echo htmlspecialchars($video['title']); ?></h6>
+                            <!-- Watch Video Button -->
+                      <?php if (!empty($video['video_file_path'])): ?>
+                        <?php else: ?>
+                            <span class="text-muted">No video available</span>
+                        <?php endif; ?>                        
+                      <?php endforeach; ?>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
 
     <div class="site-section ftco-subscribe-1" style="background-image: url('images/bg_1.jpg')">
       <div class="container">
