@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Academics &mdash; Website by Colorlib</title>
+  <title>Rajarata &mdash; News and Updates</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -14,6 +14,8 @@
   <link rel="stylesheet" href="css/owl.carousel.min.css">
   <link rel="stylesheet" href="css/owl.theme.default.min.css">
   <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
 
   <link rel="stylesheet" href="css/jquery.fancybox.min.css">
 
@@ -36,81 +38,13 @@ include('db_connect.php');
 
 ?>
   <div class="site-wrap">
+<header>
+   
 
-    <div class="site-mobile-menu site-navbar-target">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close mt-3">
-          <span class="icon-close2 js-menu-toggle"></span>
-        </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
-    </div>
+    <?php include('user_navbar.php');?>
 
-
-    <div class="py-2 bg-light">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-9 d-none d-lg-block">
-            <a href="#" class="small mr-3"><span class="icon-question-circle-o mr-2"></span> Have a questions?</a> 
-            <a href="#" class="small mr-3"><span class="icon-phone2 mr-2"></span> 10 20 123 456</a> 
-            <a href="#" class="small mr-3"><span class="icon-envelope-o mr-2"></span> info@mydomain.com</a> 
-          </div>
-          <div class="col-lg-3 text-right">
-            <a href="login.php" class="small mr-3"><span class="icon-unlock-alt"></span> Log In</a>
-            <a href="register.php" class="small btn btn-primary px-4 py-2 rounded-0"><span class="icon-users"></span> Register</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
-
-      <div class="container">
-        <div class="d-flex align-items-center">
-          <div class="site-logo">
-            <a href="index.php" class="d-block">
-              <img src="images/logo.jpg" alt="Image" class="img-fluid">
-            </a>
-          </div>
-          <div class="mr-auto">
-            <nav class="site-navigation position-relative text-right" role="navigation">
-              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li class="active">
-                  <a href="index.php" class="nav-link text-left">Home</a>
-                </li>
-                <li class="has-children">
-                  <a href="about.php" class="nav-link text-left">About Us</a>
-                  <ul class="dropdown">
-                    <li><a href="teachers.php">Our Teachers</a></li>
-                    <li><a href="about.php">Our School</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="admissions.php" class="nav-link text-left">Admissions</a>
-                </li>
-                <li>
-                  <a href="courses.php" class="nav-link text-left">Courses</a>
-                </li>
-                <li>
-                    <a href="contact.php" class="nav-link text-left">Contact</a>
-                  </li>
-              </ul>                                                                                                                                                                                                                                                                                          </ul>
-            </nav>
-
-          </div>
-          <div class="ml-auto">
-            <div class="social-wrap">
-              <a href="#"><span class="icon-facebook"></span></a>
-              <a href="#"><span class="icon-twitter"></span></a>
-              <a href="#"><span class="icon-linkedin"></span></a>
-
-              <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle text-black"><span
-                class="icon-menu h3"></span></a>
-            </div>
-          </div>
-         
-        </div>
-      </div>
-
+    
+          
     </header>
 
     <div class="hero-slide owl-carousel site-blocks-cover">
@@ -127,7 +61,7 @@ include('db_connect.php');
         while ($row = mysqli_fetch_assoc($result)) {
             // Output each carousel item
             echo '<div class="carousel-item ' . ($first ? 'active' : '') . '">';
-            echo '<div class="intro-section" style="background-image: url(\'backend/' . htmlspecialchars($row['image_path']) . '\');">';
+            echo '<div class="intro-section" style="background-image: url(\'' . htmlspecialchars($row['image_path']) . '\');">';
             if (!empty($row['title'])) {
                 echo '<div class="carousel-caption d-none d-md-block">';
                 echo '<h5>' . htmlspecialchars($row['title']) . '</h5>';
@@ -151,7 +85,7 @@ include('db_connect.php');
         <div class="row mb-5 justify-content-center text-center">
           <div class="col-lg-4 mb-5">
             <h2 class="section-title-underline mb-5">
-              <span>Why Academics Works</span>
+              <span>Why We Need</span>
             </h2>
           </div>
         </div>
@@ -163,22 +97,22 @@ include('db_connect.php');
                 <span class="flaticon-mortarboard text-white"></span>
               </div>
               <div class="feature-1-content">
-                <h2>Personalize Learning</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit morbi hendrerit elit</p>
-                <p><a href="#" class="btn btn-primary px-4 rounded-0">Learn More</a></p>
+                <h2>News and Updates</h2>
+                <p>Rajarata News and all university updates</p>
+                <p><a href="#" class="btn btn-primary px-4 rounded-0">Click Here</a></p>
               </div>
             </div>
           </div>
           <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
             <div class="feature-1 border">
-              <div class="icon-wrapper bg-primary">
-                <span class="flaticon-school-material text-white"></span>
-              </div>
-              <div class="feature-1-content">
-                <h2>Trusted Courses</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit morbi hendrerit elit</p>
-                <p><a href="#" class="btn btn-primary px-4 rounded-0">Learn More</a></p>
-              </div>
+            <div class="icon-wrapper bg-primary">
+                <span class="fas fa-futbol text-white"></span> 
+            </div>
+            <div class="feature-1-content">
+                <h2>Sports News</h2>
+                <p>Latest Updates and Highlights from the World of Sports</p>
+                <p><a href="#" class="btn btn-primary px-4 rounded-0">Click Here</a></p>
+            </div>
             </div> 
           </div>
           <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
@@ -187,8 +121,8 @@ include('db_connect.php');
                 <span class="flaticon-library text-white"></span>
               </div>
               <div class="feature-1-content">
-                <h2>Tools for Students</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit morbi hendrerit elit</p>
+                <h2>Academic News</h2>
+                <p>Breaking Developments and Insights in the Academic World</p>
                 <p><a href="#" class="btn btn-primary px-4 rounded-0">Learn More</a></p>
               </div>
             </div> 
@@ -205,136 +139,57 @@ include('db_connect.php');
         <div class="row mb-5 justify-content-center text-center">
           <div class="col-lg-6 mb-5">
             <h2 class="section-title-underline mb-3">
-              <span>Popular Courses</span>
+              <span>Popular News</span>
             </h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officia, id?</p>
+            <p>Instant Updates of Sri Lankan Universities</p>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-12">
-              <div class="owl-slide-3 owl-carousel">
-                  <div class="course-1-item">
-                    <figure class="thumnail">
-                      <a href="course-single.php"><img src="images/course_1.jpg" alt="Image" class="img-fluid"></a>
-                      <div class="price">$99.00</div>
-                      <div class="category"><h3>Mobile Application</h3></div>  
-                    </figure>
-                    <div class="course-1-content pb-4">
-                      <h2>How To Create Mobile Apps Using Ionic</h2>
-                      <div class="rating text-center mb-3">
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                      </div>
-                      <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                      <p><a href="course-single.php" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
-                    </div>
-                  </div>
-      
-                  <div class="course-1-item">
-                    <figure class="thumnail">
-                      <a href="course-single.php"><img src="images/course_2.jpg" alt="Image" class="img-fluid"></a>
-                      <div class="price">$99.00</div>
-                      <div class="category"><h3>Web Design</h3></div>  
-                    </figure>
-                    <div class="course-1-content pb-4">
-                      <h2>How To Create Mobile Apps Using Ionic</h2>
-                      <div class="rating text-center mb-3">
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                      </div>
-                      <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                      <p><a href="course-single.php" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
-                    </div>
-                  </div>
-      
-                  <div class="course-1-item">
-                    <figure class="thumnail">
-                      <a href="course-single.php"><img src="images/course_3.jpg" alt="Image" class="img-fluid"></a>
-                      <div class="price">$99.00</div>
-                      <div class="category"><h3>Arithmetic</h3></div>  
-                    </figure>
-                    <div class="course-1-content pb-4">
-                      <h2>How To Create Mobile Apps Using Ionic</h2>
-                      <div class="rating text-center mb-3">
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                      </div>
-                      <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                      <p><a href="courses-single.php" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
-                    </div>
-                  </div>
+  <div class="col-12">
+      <div class="owl-slide-3 owl-carousel">
+          <!-- News Item 1 -->
+          <div class="news-1-item">
+            <figure class="thumbnail">
+              <a href="news-single.php"><img src="images/course_3.jpg" alt="Image" class="img-fluid"></a>
+              <div class="category"><h3>Research Breakthrough</h3></div>  
+            </figure>
+            <div class="news-1-content pb-4">
+              <h2>Major Research Breakthrough at University of Colombo</h2>
+              <p class="desc mb-4">University of Colombo researchers have made a significant breakthrough in renewable energy technology. The discovery ...</p>
+              <p><a href="news-single.php" class="btn btn-primary rounded-0 px-4">Read More</a></p>
+            </div>
+          </div>
 
-                  <div class="course-1-item">
-                    <figure class="thumnail">
-                        <a href="course-single.php"><img src="images/course_4.jpg" alt="Image" class="img-fluid"></a>
-                      <div class="price">$99.00</div>
-                      <div class="category"><h3>Mobile Application</h3></div>  
-                    </figure>
-                    <div class="course-1-content pb-4">
-                      <h2>How To Create Mobile Apps Using Ionic</h2>
-                      <div class="rating text-center mb-3">
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                      </div>
-                      <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                      <p><a href="course-single.php" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
-                    </div>
-                  </div>
-      
-                  <div class="course-1-item">
-                    <figure class="thumnail">
-                        <a href="course-single.php"><img src="images/course_5.jpg" alt="Image" class="img-fluid"></a>
-                      <div class="price">$99.00</div>
-                      <div class="category"><h3>Web Design</h3></div>  
-                    </figure>
-                    <div class="course-1-content pb-4">
-                      <h2>How To Create Mobile Apps Using Ionic</h2>
-                      <div class="rating text-center mb-3">
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                      </div>
-                      <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                      <p><a href="course-single.php" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
-                    </div>
-                  </div>
-      
-                  <div class="course-1-item">
-                    <figure class="thumnail">
-                        <a href="course-single.php"><img src="images/course_6.jpg" alt="Image" class="img-fluid"></a>
-                      <div class="price">$99.00</div>
-                      <div class="category"><h3>Mobile Application</h3></div>  
-                    </figure>
-                    <div class="course-1-content pb-4">
-                      <h2>How To Create Mobile Apps Using Ionic</h2>
-                      <div class="rating text-center mb-3">
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                        <span class="icon-star2 text-warning"></span>
-                      </div>
-                      <p class="desc mb-4">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique accusantium ipsam.</p>
-                      <p><a href="course-single.php" class="btn btn-primary rounded-0 px-4">Enroll In This Course</a></p>
-                    </div>
-                  </div>
-      
-              </div>
+          <!-- News Item 2 -->
+          <div class="news-1-item">
+            <figure class="thumbnail">
+              <a href="news-single.php"><img src="images/course_1.jpg" alt="Image" class="img-fluid"></a>
+              <div class="category"><h3>Student Achievement</h3></div>  
+            </figure>
+            <div class="news-1-content pb-4">
+              <h2>Rajarata University Student Wins National Award</h2>
+              <p class="desc mb-4">A student from Rajarata University has been awarded the prestigious National Award for innovation in tech solutions...</p>
+              <p><a href="news-single.php" class="btn btn-primary rounded-0 px-4">Read More</a></p>
+            </div>
+          </div>
+
+          <!-- News Item 3 -->
+          <div class="news-1-item">
+            <figure class="thumbnail">
+              <a href="news-single.php"><img src="images/course_2.jpg" alt="Image" class="img-fluid"></a>
+              <div class="category"><h3>Campus Event</h3></div>  
+            </figure>
+            <div class="news-1-content pb-4">
+              <h2>Upcoming University of Peradeniya Cultural Festival</h2>
+              <p class="desc mb-4">The University of Peradeniya is hosting its annual cultural festival, showcasing traditional music, dance and .....</p>
+              <p><a href="news-single.php" class="btn btn-primary rounded-0 px-4">Read More</a></p>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>
+
       
           </div>
         </div>
@@ -352,12 +207,11 @@ include('db_connect.php');
         <div class="row">
           <div class="col-lg-4">
             <h2 class="section-title-underline style-2">
-              <span>About Our University</span>
+              <span>About Our Website</span>
             </h2>
           </div>
           <div class="col-lg-8">
-            <p class="lead">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rem nesciunt quaerat ad reiciendis perferendis voluptate fugiat sunt fuga error totam.</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus assumenda omnis tempora ullam alias amet eveniet voluptas, incidunt quasi aut officiis porro ad, expedita saepe necessitatibus rem debitis architecto dolore? Nam omnis sapiente placeat blanditiis voluptas dignissimos, itaque fugit a laudantium adipisci dolorem enim ipsum cum molestias? Quod quae molestias modi fugiat quisquam. Eligendi recusandae officiis debitis quas beatae aliquam?</p>
+            <p class="lead">Our platform provides detailed coverage of university news, including significant research findings, faculty achievements, and student successes. We aim to bridge the gap between the university community and the public by delivering timely and accurate information. Whether it’s groundbreaking research or important campus events, we ensure that you stay up-to-date with everything happening at Sri Lankan universities.</p>
             <p><a href="#">Read more</a></p>
           </div>
         </div>
@@ -370,7 +224,7 @@ include('db_connect.php');
         <div class="row mb-5">
           <div class="col-lg-4">
             <h2 class="section-title-underline">
-              <span>Testimonials</span>
+              <span>Administration</span>
             </h2>
           </div>
         </div>
@@ -382,12 +236,12 @@ include('db_connect.php');
             <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
               <img src="images/person_1.jpg" alt="Image" class="img-fluid mr-3">
               <div>
-                <h3>Allison Holmes</h3>
+                <h3>Fathima Akeela</h3>
                 <span>Designer</span>
               </div>
             </div>
             <div>
-              <p>&ldquo;Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis, provident numquam illum nisi amet necessitatibus. A, provident aperiam!&rdquo;</p>
+              <p>&ldquo;Fathima Akeela is an experienced website designer with a passion for creating visually stunning and user-friendly digital experiences. With a background in graphic design and web development, she blends creativity with technical expertise to craft unique websites that effectively communicate clients' brand messages. &rdquo;</p>
             </div>
           </div>
 
@@ -395,12 +249,12 @@ include('db_connect.php');
             <div class="ftco-testimonial-vcard d-flex align-items-center mb-4">
               <img src="images/person_2.jpg" alt="Image" class="img-fluid mr-3">
               <div>
-                <h3>Allison Holmes</h3>
-                <span>Designer</span>
+                <h3>Ishadha Farwin</h3>
+                <span>Developer</span>
               </div>
             </div>
             <div>
-              <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque, mollitia. Possimus mollitia nobis libero quidem aut tempore dolore iure maiores, perferendis, provident numquam illum nisi amet necessitatibus. A, provident aperiam!</p>
+              <p>Ishadha is a skilled web developer specializing in building robust and scalable websites and web applications. With a strong foundation in both front-end and back-end development, Alex excels in transforming complex requirements into functional, high-performance solutions. </p>
             </div>
           </div>
 
@@ -493,16 +347,16 @@ include('db_connect.php');
             <div class="col-lg-8">
                 <div class="section-heading">
                     <h2 class="text-black">News & Updates</h2>
-                    <a href="all_news.php">View All News</a>
+                    <a href="view_all_news.php">View All News</a>
                 </div>
                 <div class="news-container">
                     <div class="main-news">
                         <?php
                             // Define the base path to the uploads directory
-                            $base_url = 'backend/';
+                            $base_url = 'uploads/';
 
                             // Query to fetch the latest 3 news items
-                            $result = mysqli_query($conn, "SELECT * FROM news ORDER BY created_at DESC LIMIT 5");
+                            $result = mysqli_query($conn, "SELECT * FROM news ORDER BY created_at DESC LIMIT 4");
 
                             // Fetch all news items
                             $news_items = [];
@@ -515,7 +369,7 @@ include('db_connect.php');
                                 $first = true;
                                 foreach ($news_items as $index => $row) {
                                     // Construct the full URL to the image
-                                    $image_url = $base_url . htmlspecialchars($row['image_path']);
+                                    $image_url = $base_url . htmlspecialchars($row['image']);
 
                                     // Determine class for large or small news
                                     $news_class = $first ? 'large-news-item' : 'small-news-item';
@@ -526,7 +380,7 @@ include('db_connect.php');
                                     echo '<img src="' . $image_url . '" alt="Image" class="img-fluid">';
                                     echo '<div class="post-content">';
                                     echo '<div class="post-meta">';
-                                    echo '<a href="#">' . date('F j, Y', strtotime($row['created_at'])) . '</a>';
+                                    echo '<a href="news-single.php?id=' . $row['id'] . '">' . date('F j, Y', strtotime($row['created_at'])) . '</a>';
                                     echo '</div>';
                                     echo '<h3 class="post-heading">' . htmlspecialchars($row['title']) . '</h3>';
                                     echo '</div>';
@@ -548,14 +402,14 @@ include('db_connect.php');
                                 // Skip the first item as it is already used as large news
                                 if ($index > 0) {
                                     // Construct the full URL to the image
-                                    $image_url = $base_url . htmlspecialchars($row['image_path']);
+                                    $image_url = $base_url . htmlspecialchars($row['image']);
 
                                     echo '<div class="small-news-item">';
                                     echo '<a href="news-single.php?id=' . $row['id'] . '" class="img-link">';
                                     echo '<img src="' . $image_url . '" alt="Image" class="img-fluid">';
                                     echo '<div class="post-content">';
                                     echo '<div class="post-meta">';
-                                    echo '<a href="#">' . date('F j, Y', strtotime($row['created_at'])) . '</a>';
+                                    echo '<a href="news-single.php?id=' . $row['id'] . '">' . date('F j, Y', strtotime($row['created_at'])) . '</a>';
                                     echo '</div>';
                                     echo '<h5 class="post-heading">' . htmlspecialchars($row['title']) . '</h5>';
                                     echo '</div>';
@@ -576,8 +430,8 @@ $result = $conn->query("SELECT * FROM campus_videos ORDER BY created_at DESC LIM
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         // Verify that files exist in the directory
-        $video_file_path = 'backend/videos/' . basename($row['video_file_path']);
-        $image_file_path = 'backend/videos/' . basename($row['image_path']);
+        $video_file_path = 'videos/' . basename($row['video_file_path']);
+        $image_file_path = 'videos/' . basename($row['image_path']);
 
         if (file_exists($video_file_path) && file_exists($image_file_path)) {
             $row['video_file_path'] = $video_file_path;
@@ -591,7 +445,7 @@ if ($result->num_rows > 0) {
         <div class="col-lg-4">
             <div class="section-heading">
                 <h2 class="text-black">Campus Videos</h2>
-                <a href="all_videos.php">View All Videos</a>
+                <a href="view_all_videos.php">View All Videos</a>
             </div>
             <div class="container mt-5">
         <div class="column">
@@ -626,7 +480,7 @@ if ($result->num_rows > 0) {
         <div class="row align-items-center">
           <div class="col-lg-7">
             <h2>Subscribe to us!</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,</p>
+            <p>Keep in touch with us</p>
           </div>
           <div class="col-lg-5">
             <form action="" class="d-flex">
@@ -644,31 +498,20 @@ if ($result->num_rows > 0) {
         <div class="row">
           <div class="col-lg-3">
             <p class="mb-4"><img src="images/logo.png" alt="Image" class="img-fluid"></p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae nemo minima qui dolor, iusto iure.</p>  
+            <p>The fastest and reliable News provider of Sri Lankan Universities</p>  
             <p><a href="#">Learn More</a></p>
           </div>
           <div class="col-lg-3">
-            <h3 class="footer-heading"><span>Our Campus</span></h3>
+            <h3 class="footer-heading"><span>Our News</span></h3>
             <ul class="list-unstyled">
                 <li><a href="#">Acedemic</a></li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Our Interns</a></li>
-                <li><a href="#">Our Leadership</a></li>
+                <li><a href="#">Sports</a></li>
+                <li><a href="#">Our Gallery</a></li>
+                <li><a href="#">Our Programmes</a></li>
                 <li><a href="#">Careers</a></li>
-                <li><a href="#">Human Resources</a></li>
             </ul>
           </div>
-          <div class="col-lg-3">
-              <h3 class="footer-heading"><span>Our Courses</span></h3>
-              <ul class="list-unstyled">
-                  <li><a href="#">Math</a></li>
-                  <li><a href="#">Science &amp; Engineering</a></li>
-                  <li><a href="#">Arts &amp; Humanities</a></li>
-                  <li><a href="#">Economics &amp; Finance</a></li>
-                  <li><a href="#">Business Administration</a></li>
-                  <li><a href="#">Computer Science</a></li>
-              </ul>
-          </div>
+ 
           <div class="col-lg-3">
               <h3 class="footer-heading"><span>Contact</span></h3>
               <ul class="list-unstyled">
@@ -685,9 +528,9 @@ if ($result->num_rows > 0) {
           <div class="col-12">
             <div class="copyright">
                 <p>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                   
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved <i class="icon-heart" aria-hidden="true"></i> by <a href="#" target="_blank" >Rajarata News</a>
+                   
                     </p>
             </div>
           </div>

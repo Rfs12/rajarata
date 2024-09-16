@@ -1,15 +1,41 @@
 <?php
 include('db_connect.php');
+
 // Get the form data
 $username = $_POST['username'];
 $email = $_POST['email'];
 $password = $_POST['password'];
 
-// Validate the inputs (basic example, add more validation as needed)
+// Validate the inputs
 if (empty($username) || empty($email) || empty($password)) {
     echo "<script>
-    alert('All fields are want to filled!');
-  </script>";}
+    alert('All fields are required!');
+    window.location.href = 'register.php'; 
+    </script>";
+    exit;
+}
+if (!preg_match('/^[a-zA-Z0-9._%+-]+@tec\.rjt\.ac\.lk$/', $email)) {
+  echo "<script>
+  alert('Email must be in the format example@tec.rjt.ac.lk.');
+  window.location.href = 'register.php'; 
+  </script>";
+  exit;
+}
+// Check if the email already exists
+$stmt = $conn->prepare("SELECT email FROM user_signup WHERE email = ?");
+$stmt->bind_param("s", $email);
+$stmt->execute();
+$stmt->store_result();
+
+if ($stmt->num_rows > 0) {
+    echo "<script>
+    alert('This email is already registered. Please use a different email.');
+    window.location.href = 'register.php'; 
+    </script>";
+    $stmt->close();
+    $conn->close();
+    exit;
+}
 
 // Hash the password
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -21,16 +47,14 @@ $stmt->bind_param("sss", $username, $email, $hashed_password);
 // Execute the query
 if ($stmt->execute()) {
     echo "<script>
-    alert('Your Account is created');
+    alert('Your account has been created successfully.');
     window.location.href = 'login.php'; 
-  </script>";
-  
-   
+    </script>";
 } else {
     echo "<script>
-    alert('Email or Password is wrong');
-    window.location.href = 'rejister.php'; 
-  </script>";
+    alert('An error occurred while creating your account. Please try again.');
+    window.location.href = 'register.php'; 
+    </script>";
 }
 
 // Close the statement and connection

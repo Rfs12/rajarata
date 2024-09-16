@@ -45,56 +45,8 @@
     </div>
 
 
-    <div class="py-2 bg-light">
-      <div class="container">
-        <div class="row align-items-center">
-          <div class="col-lg-9 d-none d-lg-block">
-            <a href="#" class="small mr-3"><span class="icon-question-circle-o mr-2"></span> Have a questions?</a> 
-            <a href="#" class="small mr-3"><span class="icon-phone2 mr-2"></span> 10 20 123 456</a> 
-            <a href="#" class="small mr-3"><span class="icon-envelope-o mr-2"></span> info@mydomain.com</a> 
-          </div>
-          <div class="col-lg-3 text-right">
-            <a href="login.php" class="small mr-3"><span class="icon-unlock-alt"></span> Log In</a>
-            <a href="register.php" class="small btn btn-primary px-4 py-2 rounded-0"><span class="icon-users"></span> Register</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <header class="site-navbar py-4 js-sticky-header site-navbar-target" role="banner">
+    <?php include('user_navbar.php');?>
 
-      <div class="container">
-        <div class="d-flex align-items-center">
-          <div class="site-logo">
-            <a href="index.php" class="d-block">
-              <img src="images/logo.jpg" alt="Image" class="img-fluid">
-            </a>
-          </div>
-          <div class="mr-auto">
-            <nav class="site-navigation position-relative text-right" role="navigation">
-              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li>
-                  <a href="index.php" class="nav-link text-left">Home</a>
-                </li>
-                <li class="has-children">
-                  <a href="about.php" class="nav-link text-left">About Us</a>
-                  <ul class="dropdown">
-                    <li><a href="teachers.php">Our Teachers</a></li>
-                    <li><a href="about.php">Our School</a></li>
-                  </ul>
-                </li>
-                <li>
-                  <a href="admissions.php" class="nav-link text-left">Admissions</a>
-                </li>
-                <li>
-                  <a href="courses.php" class="nav-link text-left">Courses</a>
-                </li>
-                <li class="active">
-                    <a href="contact.php" class="nav-link text-left">Contact</a>
-                  </li>
-              </ul>                                                                                                                                                                                                                                                                                          </ul>
-            </nav>
-
-          </div>
           <div class="ml-auto">
             <div class="social-wrap">
               <a href="#"><span class="icon-facebook"></span></a>
@@ -194,36 +146,25 @@
       </div>
       
 
-    <div class="footer">
+      <div class="footer">
       <div class="container">
         <div class="row">
           <div class="col-lg-3">
             <p class="mb-4"><img src="images/logo.png" alt="Image" class="img-fluid"></p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae nemo minima qui dolor, iusto iure.</p>  
+            <p>The fastest and reliable News provider of Sri Lankan Universities</p>  
             <p><a href="#">Learn More</a></p>
           </div>
           <div class="col-lg-3">
-            <h3 class="footer-heading"><span>Our Campus</span></h3>
+            <h3 class="footer-heading"><span>Our News</span></h3>
             <ul class="list-unstyled">
                 <li><a href="#">Acedemic</a></li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Our Interns</a></li>
-                <li><a href="#">Our Leadership</a></li>
+                <li><a href="#">Sports</a></li>
+                <li><a href="#">Our Gallery</a></li>
+                <li><a href="#">Our Programmes</a></li>
                 <li><a href="#">Careers</a></li>
-                <li><a href="#">Human Resources</a></li>
             </ul>
           </div>
-          <div class="col-lg-3">
-              <h3 class="footer-heading"><span>Our Courses</span></h3>
-              <ul class="list-unstyled">
-                  <li><a href="#">Math</a></li>
-                  <li><a href="#">Science &amp; Engineering</a></li>
-                  <li><a href="#">Arts &amp; Humanities</a></li>
-                  <li><a href="#">Economics &amp; Finance</a></li>
-                  <li><a href="#">Business Administration</a></li>
-                  <li><a href="#">Computer Science</a></li>
-              </ul>
-          </div>
+ 
           <div class="col-lg-3">
               <h3 class="footer-heading"><span>Contact</span></h3>
               <ul class="list-unstyled">
@@ -240,9 +181,9 @@
           <div class="col-12">
             <div class="copyright">
                 <p>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                   
+                    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved <i class="icon-heart" aria-hidden="true"></i> by <a href="#" target="_blank" >Rajarata News</a>
+                   
                     </p>
             </div>
           </div>
@@ -253,6 +194,7 @@
 
   </div>
   <!-- .site-wrap -->
+
 
   <!-- loader -->
   <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#51be78"/></svg></div>
